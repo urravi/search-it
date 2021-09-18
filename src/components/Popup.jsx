@@ -1,18 +1,17 @@
 import React from 'react'
 
-function Popup() {
-    return (
+function Popup(props) {
+    return (props.trigger) ? (
             <div className="popup-form" id="login-form">
                 <form action="post" className="form-container">
                     <h2>Login</h2>
                     <input type="text" placeholder="Enter Your Email" id="email" required autocomplete="off" />
-                    <input type="tel" id="phone" placeholder="Enter Your Phone Number" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-                        required autocomplete="off"/>
+                    <input type="tel" id="phone" placeholder="Enter Your Phone Number" required autocomplete="off"/>
                     <button type="button" className="login-btn">Send OTP</button>
-                    <i className="fas fa-times" id="close"></i>
+                    <button onClick= {() => props.setTrigger(false)}><i className="fas fa-times"></i></button>
                 </form>
             </div>
-    )
+    ) : "";
 }
 
 export default Popup;
